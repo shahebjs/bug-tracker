@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
+import GoogleButton from "@/components/GoogleButton";
 import Link from "next/link";
-import { FcGoogle } from "react-icons/fc";
 import LoginForm from "./LoginForm";
 
 const Login = () => {
@@ -9,9 +8,7 @@ const Login = () => {
       <div className="p-4 rounded-3xl border shadow-xl md:w-[500px] w-full space-y-6">
         <h1 className="text-3xl md:text-5xl text-center">Login</h1>
         <LoginForm />
-        <Button variant="outline" className="w-full">
-          <FcGoogle className="mr-3 text-xl" /> Continue with Google
-        </Button>
+        <GoogleButton />
         <p className="text-center">
           Don&apos;t have an account?{" "}
           <Link
