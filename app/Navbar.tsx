@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { signOut, useSession } from "next-auth/react";
-import Image from "next/image";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 import { IoBug } from "react-icons/io5";
 
@@ -40,19 +40,16 @@ const Navbar = () => {
       {status === "authenticated" && (
         <DropdownMenu>
           <DropdownMenuTrigger>
-            <Image
-              src={data.user?.image!}
-              width={40}
-              height={40}
-              alt={data.user?.name!}
-              className="rounded-full object-cover"
-            />
+            <Avatar>
+              <AvatarImage src={data.user?.image!} />
+              <AvatarFallback> {data.user?.name?.slice(0, 1)} </AvatarFallback>
+            </Avatar>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuLabel>{data.user?.name}</DropdownMenuLabel>
-            <DropdownMenuItem>{data.user?.email}</DropdownMenuItem>
+            <DropdownMenuLabel>{data.user?.email}</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => signOut()}
+              onClick={() => signOut({ callbackUrl: "/login" })}
               className="cursor-pointer"
             >
               Logout
