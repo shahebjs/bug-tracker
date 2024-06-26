@@ -1,6 +1,7 @@
 import GoogleButton from "@/components/GoogleButton";
 import Link from "next/link";
 import RegisterForm from "./RegisterForm";
+import Or from "@/components/Or";
 
 const Login = () => {
   return (
@@ -8,6 +9,7 @@ const Login = () => {
       <div className="p-4 rounded-3xl border shadow-xl md:w-[500px] w-full space-y-6">
         <h1 className="text-3xl md:text-5xl text-center">Sign Up</h1>
         <RegisterForm />
+        <Or />
         <GoogleButton />
         <p className="text-center">
           Already have an account?{" "}
